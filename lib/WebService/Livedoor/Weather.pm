@@ -6,7 +6,7 @@ use Carp;
 use URI::Fetch;
 use XML::Simple;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my ( $class, %args ) = @_;
@@ -31,6 +31,13 @@ sub get {
     my $ref;
     eval{$ref = XMLin($res->content)};
     croak('Oops! failed reading weather information : ' . $@) if $@;
+
+    #temperature fixing
+    ref $ref->{temperature}{max}{celsius} and $ref->{temperature}{max}{celsius} = undef;
+    ref $ref->{temperature}{min}{celsius} and $ref->{temperature}{min}{celsius} = undef;
+    ref $ref->{temperature}{max}{fahrenheit} and $ref->{temperature}{max}{fahrenheit} = undef;
+    ref $ref->{temperature}{min}{fahrenheit} and $ref->{temperature}{min}{fahrenheit} = undef;
+
     return $ref;
 }
 
