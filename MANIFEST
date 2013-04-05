@@ -1,7 +1,15 @@
 Changes
+eg/sample.pl
+lib/WebService/Livedoor/Weather.pm
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 README
 t/01use.t
-lib/WebService/Livedoor/Weather.pm
-META.yml                                 Module meta-data (added by MakeMaker)
+t/11forecastmap.t
+t/12get_city_id.t
+t/13parse_forecast.t
+t/data/130010.json
+t/data/primary_area.xml
+t/Util.pm
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
