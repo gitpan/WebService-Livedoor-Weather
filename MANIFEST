@@ -8,7 +8,9 @@ MYMETA.yml
 README
 t/01use.t
 t/11forecastmap.t
+t/11get_city_id.t
 t/12get_city_id.t
+t/12parse_forecast.t
 t/13parse_forecast.t
 t/data/130010.json
 t/data/primary_area.xml

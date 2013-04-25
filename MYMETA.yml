@@ -18,8 +18,10 @@ no_index:
     - t
     - inc
 requires:
+  Encode: 0
   JSON: 0
   Test::Exception: 0
+  Test::More: 0.98
   URI::Fetch: 0
   XML::Simple: 0
-version: 0.04
+version: 0.05
