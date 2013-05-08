@@ -23,5 +23,6 @@ requires:
   Test::Exception: 0
   Test::More: 0.98
   URI::Fetch: 0
+  XML::Parser: 0
   XML::Simple: 0
-version: 0.05
+version: 0.06

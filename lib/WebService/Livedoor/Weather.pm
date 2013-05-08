@@ -6,9 +6,9 @@ use utf8;
 use Carp;
 use Encode;
 use URI::Fetch;
-use XML::Simple;
+use XML::Simple; 
 use JSON 2;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use constant BASE_URI        => $ENV{LDWEATHER_BASE_URI} || 'http://weather.livedoor.com';
 use constant ENDPOINT_URI    => $ENV{LDWEATHER_ENDPOINT_URI} || BASE_URI. '/forecast/webservice/json/v1';
@@ -54,8 +54,6 @@ sub __parse_forecast {
 
 sub __get_cityid {
     my ($self,$city) = @_;
-
-    $city = decode_utf8($city);
     $city =~ /^\d+$/ ? $city : $self->__forecastmap->{$city} or croak('Invalid city name. cannot find city id with '. $city);
 }
 
@@ -72,8 +70,10 @@ sub __forecastmap {
 sub __parse_forecastmap {
     my ($self, $str) = @_;
 
-    $str = decode_utf8($str);
-    my $ref = eval { XMLin($str, ForceArray => [qw[pref area city]]) };
+    my $ref = eval { 
+        local $XML::Simple::PREFERRED_PARSER = 'XML::Parser';
+        XMLin($str, ForceArray => [qw[pref area city]]);
+    };
     if ($@) {
         local $Carp::CarpLevel = 1;
         croak('Oops! failed reading forecastmap: '. $@);
@@ -115,6 +115,8 @@ WebService::Livedoor::Weather is a simple interface to Livedoor Weather Web Serv
 
 =head1 METHODS
 
+=over
+
 =item new
 
     $lwws = WebService::Livedoor::Weather->new;
@@ -133,6 +135,8 @@ C<fetch> is option for URI::Fetch that used for fetching weather information.
 
 retrieve weather.
 You can get a city id from http://weather.livedoor.com/forecast/rss/primary_area.xml
+
+=back
 
 =head1 SEE ALSO
 
