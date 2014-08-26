@@ -25,4 +25,4 @@ requires:
   URI::Fetch: '0'
   XML::Parser: '0'
   XML::Simple: '0'
-version: '0.08'
+version: '0.09'
