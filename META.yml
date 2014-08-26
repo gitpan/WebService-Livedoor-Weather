@@ -3,26 +3,26 @@ abstract: 'Perl interface to Livedoor Weather Web Service'
 author:
   - 'Masahiro Nagano <kazeburo@nomadscafe.jp>'
 build_requires:
-  ExtUtils::MakeMaker: 0
+  ExtUtils::MakeMaker: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 0
+  ExtUtils::MakeMaker: '0'
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.72, CPAN::Meta::Converter version 2.132140'
+generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.142060'
 license: unknown
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: WebService-Livedoor-Weather
 no_index:
   directory:
     - t
     - inc
 requires:
-  Encode: 2.53
-  JSON: 0
-  Test::Exception: 0
-  Test::More: 0.98
-  URI::Fetch: 0
-  XML::Parser: 0
-  XML::Simple: 0
-version: 0.07
+  Encode: '2.53'
+  JSON: '0'
+  Test::Exception: '0'
+  Test::More: '0.98'
+  URI::Fetch: '0'
+  XML::Parser: '0'
+  XML::Simple: '0'
+version: '0.08'
